@@ -3,14 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\EmailController;
 
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('email-form', function () {
-    return view('emailForm');
-});
+// Route::get('email-form', function () {
+//     return view('emailForm');
+// });
 
 Route::get('/lgn', function () {
     return view('login');
@@ -38,3 +39,6 @@ Route::put('/posts/{id}', [PostController::class, 'update']);
 Route::delete('/posts/{id}', [PostController::class, 'destroy']);
 
 Route::post('send-email', [MailController::class, 'sendEmail']);
+
+Route::get('/email-form', [EmailController::class, 'showForm']);
+Route::post('/send-email', [EmailController::class, 'sendEmail']);
